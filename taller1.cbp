@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="taller1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/taller1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/taller1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="arbolExpre.cpp" />
+		<Unit filename="arbolExpre.h" />
+		<Unit filename="archivo.cpp" />
+		<Unit filename="archivo.h" />
+		<Unit filename="boolean.cpp" />
+		<Unit filename="boolean.h" />
+		<Unit filename="expresionR.cpp" />
+		<Unit filename="expresionR.h" />
+		<Unit filename="identificador.cpp" />
+		<Unit filename="identificador.h" />
+		<Unit filename="listaExpre.cpp" />
+		<Unit filename="listaExpre.h" />
+		<Unit filename="listaString.cpp" />
+		<Unit filename="listaString.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="pruebaArbolExpre.cpp" />
+		<Unit filename="pruebaArchivo.cpp" />
+		<Unit filename="pruebaBoolean.cpp" />
+		<Unit filename="pruebaExpresionR.cpp" />
+		<Unit filename="pruebaIdentificador.cpp" />
+		<Unit filename="pruebaListaExpre.cpp" />
+		<Unit filename="pruebaListaString.cpp" />
+		<Unit filename="pruebaString.cpp" />
+		<Unit filename="pruebaTipoDato.cpp" />
+		<Unit filename="pruebaTipoExpresion.cpp" />
+		<Unit filename="string.cpp" />
+		<Unit filename="string.h" />
+		<Unit filename="tipoDato.cpp" />
+		<Unit filename="tipoDato.h" />
+		<Unit filename="tipoExpresion.cpp" />
+		<Unit filename="tipoExpresion.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

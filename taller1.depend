@@ -1,0 +1,200 @@
+# depslib dependency file v1.0
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\arbolexpre.cpp
+	"arbolExpre.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\arbolexpre.h
+	"tipoExpresion.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\tipoexpresion.h
+	"tipoDato.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\tipodato.h
+	"boolean.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\boolean.h
+	<stdio.h>
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\archivo.cpp
+	"archivo.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\archivo.h
+	"string.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\string.h
+	"boolean.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\boolean.cpp
+	"boolean.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\expresionr.cpp
+	"expresionR.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\expresionr.h
+	"identificador.h"
+	"arbolExpre.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\identificador.h
+	"boolean.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\identificador.cpp
+	"identificador.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\listaexpre.cpp
+	"listaExpre.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\listaexpre.h
+	"expresionR.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\listastring.cpp
+	"listaString.h"
+
+1583785348 d:\personales\facultad y utu\ude\taller 1\taller1\listastring.h
+	"string.h"
+
+1583843617 source:d:\personales\facultad y utu\ude\taller 1\taller1\main.cpp
+	"archivo.h"
+	"listaString.h"
+	"listaExpre.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebaarbolexpre.cpp
+	"arbolExpre.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebaarchivo.cpp
+	"archivo.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebaboolean.cpp
+	"boolean.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebaexpresionr.cpp
+	"expresionR.h"
+	"string.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebaidentificador.cpp
+	"identificador.h"
+	"string.h"
+
+1583843621 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebalistaexpre.cpp
+	"listaExpre.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebalistastring.cpp
+	"listaString.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebastring.cpp
+	"string.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebatipodato.cpp
+	"tipoDato.h"
+	"string.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\pruebatipoexpresion.cpp
+	"tipoExpresion.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\string.cpp
+	"string.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\tipodato.cpp
+	"tipoDato.h"
+
+1583785348 source:d:\personales\facultad y utu\ude\taller 1\taller1\tipoexpresion.cpp
+	"tipoExpresion.h"
+
+1584021755 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\arbolexpre.cpp
+	"arbolExpre.h"
+
+1584021307 d:\personales\facultad y utu\ude\taller 1\proyecto 2\arbolexpre.h
+	"tipoExpresion.h"
+
+1583997558 d:\personales\facultad y utu\ude\taller 1\proyecto 2\tipoexpresion.h
+	"tipoDato.h"
+
+1583997558 d:\personales\facultad y utu\ude\taller 1\proyecto 2\tipodato.h
+	"boolean.h"
+
+1583997558 d:\personales\facultad y utu\ude\taller 1\proyecto 2\boolean.h
+	<stdio.h>
+
+1584022083 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\archivo.cpp
+	"archivo.h"
+
+1583997558 d:\personales\facultad y utu\ude\taller 1\proyecto 2\archivo.h
+	"string.h"
+	"expresionR.h"
+
+1584021346 d:\personales\facultad y utu\ude\taller 1\proyecto 2\string.h
+	"boolean.h"
+
+1584021277 d:\personales\facultad y utu\ude\taller 1\proyecto 2\expresionr.h
+	"identificador.h"
+	"arbolExpre.h"
+
+1583997558 d:\personales\facultad y utu\ude\taller 1\proyecto 2\identificador.h
+	"boolean.h"
+
+1583997558 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\boolean.cpp
+	"boolean.h"
+
+1584021785 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\expresionr.cpp
+	"expresionR.h"
+
+1583997558 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\identificador.cpp
+	"identificador.h"
+
+1583997558 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\listaexpre.cpp
+	"listaExpre.h"
+
+1583997558 d:\personales\facultad y utu\ude\taller 1\proyecto 2\listaexpre.h
+	"expresionR.h"
+
+1584021247 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\listastring.cpp
+	"listaString.h"
+
+1584021239 d:\personales\facultad y utu\ude\taller 1\proyecto 2\listastring.h
+	"string.h"
+
+1584021839 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebaarbolexpre.cpp
+	"arbolExpre.h"
+
+1584022060 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebaarchivo.cpp
+	"archivo.h"
+
+1584022097 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebaboolean.cpp
+	"boolean.h"
+
+1584022170 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebaexpresionr.cpp
+	"expresionR.h"
+	"string.h"
+
+1584024359 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebaidentificador.cpp
+	"identificador.h"
+	"string.h"
+
+1584024349 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebalistaexpre.cpp
+	"listaExpre.h"
+
+1584027043 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebalistastring.cpp
+	"listaString.h"
+
+1584027074 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebastring.cpp
+	"string.h"
+
+1584027096 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebatipodato.cpp
+	"tipoDato.h"
+	"string.h"
+
+1584027135 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\pruebatipoexpresion.cpp
+	"tipoExpresion.h"
+
+1583997558 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\string.cpp
+	"string.h"
+
+1583997558 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\tipodato.cpp
+	"tipoDato.h"
+
+1583997558 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\tipoexpresion.cpp
+	"tipoExpresion.h"
+
+1584021634 source:d:\personales\facultad y utu\ude\taller 1\proyecto 2\main.cpp
+	"archivo.h"
+	"listaString.h"
+	"listaExpre.h"
+
