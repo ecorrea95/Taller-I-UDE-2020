@@ -15,4 +15,6 @@ int pruebaboolean()
     b=cargarBooleano('t');
     mostrarBooleano(b);
     printf ("\n");
+    
+    return 1;
 }
