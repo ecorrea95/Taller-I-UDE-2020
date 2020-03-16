@@ -86,18 +86,9 @@ string obtenerStringPos (listaString L, int pos)
         else
             L=L->sig;
         a++;
-
-
     }
     return resultado;
 }
-
-//Obtengo string
-string obtenerString (listaString L)
-{
-    return L->info;
-}
-
 
 //Elimina los strings de la lista
 void limpiarListaString (listaString &L)
@@ -114,7 +105,7 @@ void limpiarListaString (listaString &L)
     }
 }
 
-// MOstrar elementos de la lista
+//Mostrar elementos de la lista
 void mostrarListaS (listaString L)
 {
     if (L == NULL)
@@ -128,8 +119,15 @@ void mostrarListaS (listaString L)
             printf("\n");
             L=L -> sig;
         }
-
     }
+}
+
+//SELECTORAS
+
+//Obtengo string de la lista
+string obtenerString (listaString L)
+{
+    return L->info;
 }
 
 
