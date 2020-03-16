@@ -4,7 +4,7 @@
 
 typedef enum {LET,NUM,OPE,PAR} tipoDato;
 
-//mostrar tipo de dato
+//Mostrar tipo de dato
 void mostrarTipoDato(tipoDato t);
 
 //Bajar tipoDato a archivo
