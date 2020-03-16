@@ -6,7 +6,6 @@ void crearArbol (arbolExpre &a)
     a = NULL;
 }
 
-
 //Carga los datos del arbolExpre con variable o número (y sus hijos en NULL)
 void cargarArbolAtomico (arbolExpre &arbol, tipoExpresion expre)
 {
@@ -83,7 +82,7 @@ void subirArbol (FILE * f, int &num, tipoExpresion &t)
 void subirArbolExpre (arbolExpre &aEX, FILE * f)
 {
     tipoExpresion t;
-    int num=0;
+    int num = 0;
     subirArbol(f, num, t);
     while (!feof(f))
     {
@@ -95,9 +94,9 @@ void subirArbolExpre (arbolExpre &aEX, FILE * f)
 // Inserto un término en el arbol según algoritmo de inserción en un ABB (usando el numero del nodo)
 void insertarSegunABB (arbolExpre &a,int num, tipoExpresion t)
 {
-    if(a==NULL)
+    if(a == NULL)
     {
-        a=new nodoA;
+        a = new nodoA;
         a->laExp = t;
         a->idIdentificador = num;
         a->hizq=NULL;
@@ -143,7 +142,7 @@ boolean arbolVacio (arbolExpre a)
 //Comparar si dos árboles son iguales nodo a nodo
 boolean comparoArbol (arbolExpre a, arbolExpre b)
 {
-    if ( arbolVacio(a) && arbolVacio(b))
+    if (arbolVacio(a) && arbolVacio(b))
         return TRUE;
     else
     {
@@ -159,13 +158,12 @@ boolean comparoArbol (arbolExpre a, arbolExpre b)
     }
 }
 
-
 //Evaluar resultado de un arbol
 ///PRECONDICION: El arbol no es vacio
 int evaluoArbol (arbolExpre a, int valor)
 {
-    ///LLAMAR A LAS FUNCIONES SELECGTORAS CORRESPONDIENTES
-    if ( darElTipo(devuelvoTipoExpresion(a))== NUM)
+    ///LLAMAR A LAS FUNCIONES SELECTORAS CORRESPONDIENTES
+    if (darElTipo(devuelvoTipoExpresion(a)) == NUM)
         return darNumero(devuelvoTipoExpresion(a)) ;
     else if (darElTipo(devuelvoTipoExpresion(a)) == LET)
         return valor;
@@ -173,8 +171,6 @@ int evaluoArbol (arbolExpre a, int valor)
         return evaluoArbol(a->hizq,valor) + evaluoArbol(a->hder,valor);
     else
         return evaluoArbol(a->hizq,valor) * evaluoArbol(a->hder,valor);
-
-
 }
 
 //Muestro el arbol en orden por pantalla nodo a nodo
