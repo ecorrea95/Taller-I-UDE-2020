@@ -36,4 +36,7 @@ switch (nuevo2)
             break;
         }
 fclose(g);
+    
+    
+    return 1;
 }
