@@ -8,23 +8,6 @@ void cargarExpresionR (identificador ident, arbolExpre arbol, expresionR &e)
     e.expresion = arbol;
 }
 
-
-//Selectoras
-//Obtener id de expresionR
-identificador obtenerIdentificador (expresionR id)
-{
-    return id.ident;
-}
-
-
-//Obtener el árbol de la expresión
-arbolExpre obtenerArbol (expresionR e)
-{
-    return e.expresion;
-}
-
-
-
 //Bajar expresionR a archivo
 void bajarExpR(expresionR ex, FILE * f)
 {
@@ -49,11 +32,23 @@ void mostrarExpresionR (expresionR e,boolean ImprimoResultado)
         mostrarArbol(e.expresion);
 }
 
-
-
 //Borra la expresiónR
 void borrarExpR (expresionR &ex)
 {
     arbolExpre a = obtenerArbol(ex);
     borrarNodosArbol(a);
+}
+
+//SELECTORAS
+
+//Obtener id de expresionR
+identificador obtenerIdentificador (expresionR id)
+{
+    return id.ident;
+}
+
+//Obtener el árbol de la expresión
+arbolExpre obtenerArbol (expresionR e)
+{
+    return e.expresion;
 }
