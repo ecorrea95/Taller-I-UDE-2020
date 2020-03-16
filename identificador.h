@@ -7,12 +7,6 @@ typedef struct {
 			    int posicion;
                 }identificador;
 
-//Obtengo el id del identificador
-char obtengoID(identificador id);
-
-//Obtengo la posicion del identificador
-int obtengoPosicion(identificador id);
-
 //Crea identificador de expresión
 void crearIdent (char E, int maxNum, identificador &id);
 
@@ -25,19 +19,18 @@ void bajarIdentificador (identificador i, FILE * nomArch);
 //Subir identificador a memoria
 void subirIdentificador (identificador &i, FILE * nomArch);
 
-//SELECTORAS
+//Comparo si dos identificadore son iguales
+boolean identificadoresSonIguales (identificador ident1,identificador ident2);
 
-//Devuelve el id del identificador
-char devuelveID (identificador i);
-
-//Devuelve la posicion del identificador
-int devuelvePosicion (identificador i);
-
-//comparo si dos identificadore son iguales
-boolean IdentificdoresSonIguales (identificador ident1,identificador ident2);
-
-//mostrar identificador por pantalla
+//Mostrar identificador por pantalla
 void mostrarIdentificador(identificador i);
 
+//SELECTORAS
+
+//Obtengo el id del identificador
+char obtengoID(identificador id);
+
+//Obtengo la posicion del identificador
+int obtengoPosicion(identificador id);
 
 #endif // IDENTIFICADOR_H_INCLUDED
