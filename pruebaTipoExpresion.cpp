@@ -154,4 +154,6 @@ int mainPruebaTipoExpresion()
     printf("\nLo que subimos desde archvio es: ");
     mostrarTipoExpresion(nuevo5);
     mostrarTipoDato(darElTipo(nuevo5));
+    
+    return 1;
 }
