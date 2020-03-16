@@ -33,18 +33,29 @@ void mostrarString (string s)
 {
     int i=0;
     //Soliciar en el main lo que se quiere mostrar
-    while (s [i] != '\0')
+    while (s[i] != '\0')
     {
         printf("%c",s[i]);
         i++;
     }
 }
 
+//Mostrar string por pantalla
+boolean stringVacio (string s)
+{
+
+    boolean resultado=FALSE;
+    //Soliciar en el main lo que se quiere mostrar
+    if(s [0] == '\0')
+        resultado=TRUE;
+    return resultado;
+}
+
 //Libera memoria dinamica del string
 void liberarMemoriaString (string &s)
 {
     delete [] s ;
-    s = NULL;
+    strCrear(s);
 }
 
 ///Escribe en el archivo los caracteres del string s (incluido '\0')
@@ -149,7 +160,6 @@ int convertirString (string s)
             numero = numero + ((s[i] - 48) * potencia (10, num - 1 - i));
         }
     }
-
     return numero;
 }
 
@@ -163,14 +173,14 @@ boolean esVariable (string s)
         return FALSE;
 }
 
-//Devuelve si es un numero o no
+//Devuelve si es un numero valido o no
 boolean esNumero (string s)
 {
     int i = 0;
-    boolean valido = FALSE ;
-    while (s[i] != '\0' && !valido)
+    boolean valido = FALSE;
+    while (s[i] != '\0' && s[i] != '-' && !valido)
     {
-        if ( s[i] <58 && s[i] >47 )
+        if ( s[i] < 58 && s[i] > 47 )
         {
             valido = TRUE;
         }
@@ -179,9 +189,26 @@ boolean esNumero (string s)
     }
     return valido;
 }
+/*
+//Devuelve si la letra es "e" o no
+boolean esLetraE (string s)
+{
+    int i = 0;
+    boolean valido = FALSE;
+    while (s[i] != '\0' && !valido)
+    {
+        if ( s[i] == 'e')
+        {
+            valido = TRUE;
+        }
+        else
+            i++;
+    }
+    return valido;
+}*/
 
 //Verifico si el nombre es alfanumérico
-boolean esAlfanumerico(string s)
+/*boolean esAlfanumerico(string s)
 {
     int i = 0;
     boolean letra=FALSE;
@@ -209,10 +236,22 @@ boolean esAlfanumerico(string s)
         alfanumerico=TRUE;
 
     return alfanumerico;
+}*/
+
+boolean esAlfanumerico(string s)
+{
+    int i = 0;
+    while (s[i] != '\0' &&  s[i]!=46)
+    {
+      if (((64 < s[i] && s[i] < 91) || (96 < s[i] && s[i]< 123) || (47 < s[i] && s[i] < 58)))
+        i++;
+      else
+        return FALSE;
+    }
 }
 
 //Verificó extensión del archivo es .dat
-boolean extensionValida(string s1)
+/*boolean extensionValida(string s1)
 {
     string sAux;
     strCrear (sAux);
@@ -234,15 +273,36 @@ boolean extensionValida(string s1)
         valido = comparoString (sAux, s2);
     }
     return valido;
+}*/
+
+boolean extensionValida(string s1)
+{
+    string sAux;
+    strCrear (sAux);
+    int i = (strlar (s1)) - 4;
+    int j=0;
+    boolean valido = FALSE;
+    while (s1[i] != '\0' )
+      {
+          sAux[j] = s1[i];
+          i++;
+          j++;
+      }
+    sAux[j]='\0';
+    string s2;
+    strCrear(s2);
+    s2 = ".dat";
+    valido = comparoString (sAux, s2);
+    return valido;
 }
 
 //Contar puntos en el nombre del archivo
-boolean contarPuntos(string s)
+/*boolean contarPuntos(string s)
 {
     int i=0;
     boolean resultado=FALSE;
     int contador=0;
-    while (s[i]!='\0' || !contador>1 )
+    while (s[i]!='\0' && !contador>1 )
     {
         if(s[i]=='.')
             contador++;
@@ -251,6 +311,21 @@ boolean contarPuntos(string s)
     if(contador==1)
         resultado=TRUE;
     return resultado;
+}*/
+
+boolean contarPuntos(string s)
+{
+  int i = 0, puntos = 0;
+  while (s[i] != '\0' && puntos != 2)
+    {
+      if (s[i] == '.')
+        puntos++;
+      i++;
+    }
+  if (puntos == 1)
+    return TRUE; //no supera la cantidad maxima
+  else
+    return FALSE; //upera la cantidad maxima
 }
 
 // agrego de a un carater a un string
@@ -293,7 +368,7 @@ void strcon(string &texto1,string texto2)
 
 }
 
-//verifico si el nombre de la variable es valido
+//separo los numero de un string
 string cortoNumeroDeExpresion(string s)
 {
     string resultado;
@@ -310,4 +385,21 @@ string cortoNumeroDeExpresion(string s)
 
     return resultado;
 }
-
+/*
+//separo la letra de un string
+string cortoLetraDeExpresion (string s)
+{
+    string resultado;
+    strCrear(resultado);
+    int i=0;
+    while(s[i]!='\0')
+    {
+        if(s[i]=='e')
+        {
+            agregoCharAString(s[i],resultado);
+        }
+        i++;
+    }
+    return resultado;
+}
+*/
