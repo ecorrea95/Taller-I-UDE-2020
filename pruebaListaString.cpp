@@ -121,7 +121,7 @@ int mainListaString()
             else
             {
                 printf("\nEl string es: ");
-                mostrarString(obtenerStringPos(ls,3));
+                mostrarString(obtenerStringPos(ls,2));
                 limpiarListaString(ls);
             }
             break;
@@ -197,4 +197,6 @@ int mainListaString()
             break;
         }
     }
+
+    return 1;
 }
