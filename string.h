@@ -11,10 +11,10 @@ void strCrear(string &s);
 //Carga string ingresado por teclado
 void cargarString (string &s);
 
-// mostrar string
+//Mostrar string en pantalla
 void mostrarString (string s);
 
-//Mostrar string por pantalla
+//Dice si el string es vacio
 boolean stringVacio (string s);
 
 //Compara dos strings si son iguales
@@ -42,10 +42,7 @@ boolean esVariable (string s);
 
 //Devuelve si es un numero o no
 boolean esNumero (string s);
-/*
-//Devuelve si la letra es e o no
-boolean esLetraE (string s);
-*/
+
 //Libera memoria dinamica del string
 void liberarMemoriaString (string &s);
 
@@ -58,16 +55,13 @@ boolean extensionValida(string s);
 //Contar puntos en el nombre del archivo
 boolean contarPuntos(string s);
 
-// agrego de a un carater a un string
+//Agrego de a un carater a un string
 void agregoCharAString(char a, string &s);
 
-//CONCATENO STRING, SEGUNDO EN EL PRIMERO
+//Concateno string, segundo en el primero
 void strcon(string & texto1,string texto2);
 
-//separo el numero de un string
+//Separo el numero de un string
 string cortoNumeroDeExpresion (string s);
-/*
-//separo la letra de un string
-string cortoLetraDeExpresion (string s);
-*/
+
 #endif // STRING_H_INCLUDED
