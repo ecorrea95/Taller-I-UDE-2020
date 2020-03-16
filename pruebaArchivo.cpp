@@ -3,7 +3,7 @@
 void pruebaArchivo()
 {
 string archprueba;
-archprueba="a.dat";
+archprueba = "a.dat";
 if (existeArchivo(archprueba))
     printf("\nEl archvio existe" );
 else
