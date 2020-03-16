@@ -27,7 +27,17 @@ void crearTipoExpresionParentesis (char par, tipoExpresion &t);
 //Desplegar tipo de expresion
 void mostrarTipoExpresion (tipoExpresion t);
 
+//Comparo tipo expresion
+boolean comparoTipoExpresion (tipoExpresion t, tipoExpresion r);
+
+//Bajar tipoExpresion a archivo
+void bajarTipoExpresion(tipoExpresion t, FILE * f);
+
+//Subir tipoExpresion a memoria
+void subirTipoExpresion(tipoExpresion &t, FILE * f);
+
 //SELECTORAS
+
 //Devuelve el tipo de dato
 tipoDato darElTipo (tipoExpresion t);
 
@@ -42,14 +52,5 @@ char darOperador (tipoExpresion t);
 
 //Devuelve el paréntesis del tipoExpresion
 char darParentesis (tipoExpresion t);
-
-//Comparo tipo expresion
-boolean comparoTipoExpresion (tipoExpresion t, tipoExpresion r);
-
-//Bajar tipoExpresion a archivo
-void bajarTipoExpresion(tipoExpresion t, FILE * f);
-
-//Subir tipoExpresion a memoria
-void subirTipoExpresion(tipoExpresion &t, FILE * f);
 
 #endif // TIPOEXPRESION_H_INCLUDED
