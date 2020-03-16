@@ -7,13 +7,13 @@ void crearIdent (char E, int maxNum, identificador &id)
     id.posicion = maxNum;
 }
 
-//Valida que el numero del identificador sea un NUMERO y que es mayor que cero
+//Valida que la letra sea "e" y el numero del identificador sea un NUMERO y que es mayor que cero
 boolean idValido (identificador ident)
 {
-    if (ident.posicion <= 2147483647 && ident.posicion >=0)
-        return TRUE;
-    else
-        return FALSE;
+    if ((ident.posicion <= 2147483647 && ident.posicion >=0) && ident.id == 'e')
+            return TRUE;
+        else
+            return FALSE;
 }
 
 //Bajar identificador a archivo
