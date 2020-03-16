@@ -39,7 +39,6 @@ int mainPruebaexpresionR()
         }
     }
 
-
     //Obtengo identificador de la expsionR
     printf("\n\n************************Obtengo identificador de expresionR************************\n");
     for(int i=0; i<2; i++)
@@ -60,14 +59,12 @@ int mainPruebaexpresionR()
         }
     }
 
-
     //Obtener el árbol de la expresión
     printf("\n\n************************Obtengo de la expresionR************************\n");
     printf("\n1-Prueba Obtengo el arbol de la expresion: ");
     mostrarExpresionR(e,TRUE);
     printf("\nEl arbol es: ");
     mostrarArbol(obtenerArbol(e));
-
 
     //Borra la expresiónR
     printf("\n\n************************Borro el arbol de la expresionR************************\n");
@@ -101,14 +98,10 @@ int mainPruebaexpresionR()
     mostrarExpresionR(laExpre1,TRUE);
     printf("\nEl siguiente arbol: ");
     mostrarArbol(obtenerArbol(laExpre1));
-    //int numero=0;
-    //numerarNodos(obtenerArbol(laExpre1),numero);///////////////////preguntar a fede por que no se puede hacer???????
     string nombre = "pruebaExpresionR.dat";
     FILE * f=fopen (nombre,"wb");
-    //printf("identificador luego de numera   %d",obtenerArbol(laExpre1)->idIdentificador);
     bajarExpR(laExpre1,f);
     fclose(f);
-
 
     //Subir expresionR a archivo
     printf("\n\n************************Subir la expresionR desde archivo************************\n");
@@ -126,7 +119,7 @@ int mainPruebaexpresionR()
     mostrarExpresionR(loadE,TRUE);
     printf("\nEl arbol:");
     mostrarArbol(obtenerArbol(loadE));
-    
+
     return 1;
 }
 
