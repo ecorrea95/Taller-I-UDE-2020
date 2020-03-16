@@ -14,6 +14,9 @@ void cargarString (string &s);
 // mostrar string
 void mostrarString (string s);
 
+//Mostrar string por pantalla
+boolean stringVacio (string s);
+
 //Compara dos strings si son iguales
 boolean comparoString (string s1, string s2);
 
@@ -39,7 +42,10 @@ boolean esVariable (string s);
 
 //Devuelve si es un numero o no
 boolean esNumero (string s);
-
+/*
+//Devuelve si la letra es e o no
+boolean esLetraE (string s);
+*/
 //Libera memoria dinamica del string
 void liberarMemoriaString (string &s);
 
@@ -58,7 +64,10 @@ void agregoCharAString(char a, string &s);
 //CONCATENO STRING, SEGUNDO EN EL PRIMERO
 void strcon(string & texto1,string texto2);
 
-//verifico si el nombre de la variable es valido
-string cortoNumeroDeExpresion(string s);
-
+//separo el numero de un string
+string cortoNumeroDeExpresion (string s);
+/*
+//separo la letra de un string
+string cortoLetraDeExpresion (string s);
+*/
 #endif // STRING_H_INCLUDED
