@@ -1,6 +1,6 @@
 #include "boolean.h"
 
-//Cargar booleano
+//Devuelve true o false según la opción
 boolean cargarBooleano (char opcion)
 {
     boolean resultado=FALSE;
@@ -9,7 +9,7 @@ boolean cargarBooleano (char opcion)
     return  resultado;
 }
 
-//Mostrar resultado de booleano
+//Despliega en pantalla el booleano
 void mostrarBooleano (boolean b)
 {
     if (b)
