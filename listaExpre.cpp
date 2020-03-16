@@ -7,7 +7,8 @@ void crearListaExpre (listaExpre &L)
     L = NULL;
 }
 
-//Obtiene el número máximo de los identificadores guardados en la listaExpre. PRECONDICIÓN: existe al menos 1
+//Obtiene el número máximo de los identificadores guardados en la listaExpre
+///PRECONDICIÓN: existe al menos 1
 int maxId (listaExpre L)
 {
     int MAX = 0;
@@ -46,20 +47,21 @@ boolean existeIdent (identificador ident, listaExpre Lexpre)
 {
     boolean existe = FALSE;
     while (Lexpre != NULL && !existe)
-        if (IdentificdoresSonIguales(ident, obtenerIdentificador(Lexpre->info)))
+        if (identificadoresSonIguales(ident, obtenerIdentificador(Lexpre->info)))
             existe = TRUE;
         else
             Lexpre = Lexpre->sig;
     return existe;
 }
 
-//Devuelve la expresión con ese ident de la listaExpre. PRECONDICIÓN: el ident existe en la lista
+//Devuelve la expresión con ese ident de la listaExpre
+///PRECONDICIÓN: el ident existe en la lista
 void obtenerExpresionRDeLista (identificador ident, listaExpre Lexpre,expresionR &pExpresion)
 {
     boolean existe=FALSE;
     while (Lexpre != NULL && !existe)
     {
-        if (IdentificdoresSonIguales(ident, obtenerIdentificador(Lexpre->info) ))
+        if (identificadoresSonIguales(ident, obtenerIdentificador(Lexpre->info) ))
         {
             existe = TRUE;
             pExpresion=Lexpre->info;
@@ -67,13 +69,6 @@ void obtenerExpresionRDeLista (identificador ident, listaExpre Lexpre,expresionR
         else
             Lexpre = Lexpre->sig;
     }
-
-}
-
-//Devuelve la expresión de la listaExpre. PRECONDICIÓN: el ident existe en la lista
-expresionR obtenerExpresionR (listaExpre Lexpre)
-{
-    return Lexpre->info;
 }
 
 //Muestro lista de expresiones por pantalla
@@ -100,4 +95,13 @@ void borrarListaExpre(listaExpre &L)
         delete L;
         L=aux;
     }
+}
+
+//SELECTORAS
+
+//Devuelve la expresión de la listaExpre
+///PRECONDICIÓN: el ident existe en la lista
+expresionR obtenerExpresionR (listaExpre Lexpre)
+{
+    return Lexpre->info;
 }
