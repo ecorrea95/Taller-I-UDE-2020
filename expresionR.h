@@ -8,13 +8,6 @@ typedef struct	{
 				arbolExpre expresion;
 				} expresionR;
 
-//Selectoras
-//Obtener id de expresionR
-identificador obtenerIdentificador (expresionR id);
-
-//Obtener el árbol de la expresión
-arbolExpre obtenerArbol (expresionR e);
-
 //Carga los datos de la expresiónR
 void cargarExpresionR (identificador ident, arbolExpre arbol, expresionR &expre);
 
@@ -29,5 +22,13 @@ void mostrarExpresionR (expresionR e,boolean ImprimoResultado);
 
 //Borra la expresiónR
 void borrarExpR (expresionR &ex);
+
+//SELECTORAS
+
+//Obtener id de expresionR
+identificador obtenerIdentificador (expresionR id);
+
+//Obtener el árbol de la expresión
+arbolExpre obtenerArbol (expresionR e);
 
 #endif // EXPRESIONR_H_INCLUDED
