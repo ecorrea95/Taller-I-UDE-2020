@@ -24,16 +24,16 @@ int contarNodos (listaString L);
 //Obtengo string de la lista segun la posicion
 string obtenerStringPos (listaString L, int pos);
 
-//Obtengo string
-string obtenerString (listaString L);
-
 //Elimina los strings de la lista
 void limpiarListaString (listaString &L);
 
-// Mostrar elementos de la lista
+//Mostrar elementos de la lista
 void mostrarListaS (listaString L);
 
-// agrego de a un carater a un string
-void agregoCharAString(char a, string &s);
+//SELECTORAS
+
+//Obtengo string de la lista
+string obtenerString (listaString L);
+
 
 #endif
