@@ -126,5 +126,7 @@ int mainPruebaexpresionR()
     mostrarExpresionR(loadE,TRUE);
     printf("\nEl arbol:");
     mostrarArbol(obtenerArbol(loadE));
+    
+    return 1;
 }
 
