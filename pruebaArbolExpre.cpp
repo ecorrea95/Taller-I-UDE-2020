@@ -231,4 +231,6 @@ int mainPruebaArbolExpre()
     else
         printf ("\nNo estoy vacio.");
     printf ("\n\n");
+    
+    return 1;
 }
