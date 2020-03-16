@@ -61,7 +61,7 @@ void mostrarArbol (arbolExpre a);
 //Numero los nodos del arbol en orden de menor a mayor
 void numerarNodos (arbolExpre &a, int &num);
 
-// Inserto un término en el arbol según algoritmo de inserción en un ABB (usando el numero del nodo)
+//Inserto un término en el arbol según algoritmo de inserción en un ABB (usando el numero del nodo)
 void insertarSegunABB (arbolExpre &a, int num, tipoExpresion t);
 
 //Carga los parentesis en el arbol
@@ -70,7 +70,6 @@ void cargarParentesis (arbolExpre &a, tipoExpresion parIzq, tipoExpresion parDer
 //SELECTORAS
 //Devuelve el numero del identificador
 int devuelvoIdIdentificador (arbolExpre a);
-
 
 //Devuelve el tipo de expresion
 tipoExpresion devuelvoTipoExpresion (arbolExpre a);
