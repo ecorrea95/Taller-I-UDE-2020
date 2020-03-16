@@ -28,38 +28,6 @@ void crearTipoExpresionParentesis (char par, tipoExpresion &t)
     t.dato.parentesis = par;
 }
 
-//SELECTORAS
-//Devuelve el tipo de dato
-tipoDato darElTipo (tipoExpresion t)
-{
-    return t.elTipo;
-}
-
-//Devuelve la letra del tipoExpresion
-char darLetra (tipoExpresion t)
-{
-    return t.dato.letra;
-}
-
-//Devuelve el número del tipoExpresion
-int darNumero (tipoExpresion t)
-{
-    return t.dato.numero;
-}
-
-//Devuelve el operador del tipoExpresion
-char darOperador (tipoExpresion t)
-{
-    return t.dato.operador;
-}
-
-//Devuelve el paréntesis del tipoExpresion
-char darParentesis (tipoExpresion t)
-{
-    return t.dato.parentesis;
-}
-
-
 //Desplegar tipo de expresion
 void mostrarTipoExpresion (tipoExpresion t)
 {
@@ -120,5 +88,38 @@ void subirTipoExpresion(tipoExpresion &t, FILE * f)
     fread (&t, sizeof (tipoExpresion), 1, f);
 
 }
+
+//SELECTORAS
+
+//Devuelve el tipo de dato
+tipoDato darElTipo (tipoExpresion t)
+{
+    return t.elTipo;
+}
+
+//Devuelve la letra del tipoExpresion
+char darLetra (tipoExpresion t)
+{
+    return t.dato.letra;
+}
+
+//Devuelve el número del tipoExpresion
+int darNumero (tipoExpresion t)
+{
+    return t.dato.numero;
+}
+
+//Devuelve el operador del tipoExpresion
+char darOperador (tipoExpresion t)
+{
+    return t.dato.operador;
+}
+
+//Devuelve el paréntesis del tipoExpresion
+char darParentesis (tipoExpresion t)
+{
+    return t.dato.parentesis;
+}
+
 
 
