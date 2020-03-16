@@ -450,9 +450,36 @@ int mainPruebaString()
     mostrarString(s12);
     printf("\nString luego de la funcion:\n");
     mostrarString(s13);
+/*
+    printf("\n\nPruebo cortoLetraDeExpresion");
+    s13=cortoLetraDeExpresion(s12);
+    printf("\nString original:\n");
+    mostrarString(s12);
+    printf("\nString luego de la funcion:\n");
+    mostrarString(s13);
+    if (esLetraE(s13))
+        printf("\nEs E\n");
+    else
+        printf("\nNo es E");
+    string s14;
+    strCrear(s14);
+    string s15;
+    strCrear(s15);
+    s14 = "r1\0";
+    s15 = (cortoLetraDeExpresion(s14));
+    printf("\nString original:\n");
+    mostrarString(s14);
+    printf("\nString luego de la funcion:\n");
+    mostrarString(s15);
+    if (esLetraE(s15))
+        printf("Es E\n");
+    else
+        printf("\nNo es E\n");
+
+*/
 
 
-
+    return 1;
 
 }
 
