@@ -43,4 +43,5 @@ subirIdentificador (elNuevo3,g );
 printf("\nEl identificador subido a memoria es %c%d", elNuevo3.id, elNuevo3.posicion);
 fclose(g);
 
+    return 1;
 }
