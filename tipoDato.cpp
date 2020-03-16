@@ -1,7 +1,6 @@
 #include "tipoDato.h"
 
-
-//mostrar tipo de dato
+//Mostrar tipo de dato
 void mostrarTipoDato(tipoDato t)
 {
     switch (t)
