@@ -39,44 +39,34 @@ int main()
                     string stringpos;
                     strCrear(stringpos);
                     stringpos = obtenerStringPos(lis,1);
-                    if (esVariable(stringpos))
-                        contador++;
-                    if (esNumero(stringpos))
-                        contador++;
-                    if(contador!=1)
-                        printf("Se esperaba una x o un numero entero\n");
+                    if (strlar(stringpos) > 10)
+                        printf ("Error: El parametro es demasiado largo\n");
                     else
                     {
-                        int maximo = maxId(lexpre)+1;
-                        crearIdent(E,maximo,id);
-                        str = obtenerStringPos(lis,1);
-                        if(esVariable(str))
+                        if (esVariable(stringpos))
+                            contador=1;
+                        if (esNumero(stringpos))
+                            contador=2;
+                        if(contador==0)
+                            printf("Se esperaba una x o un numero entero\n");
+                        else
                         {
-                            crearTipoExpresionVariable('x',tipoExpre);
+                            int maximo = maxId(lexpre)+1;
+                            crearIdent(E,maximo,id);
+                            if(contador==1)
+                            {
+                                crearTipoExpresionVariable('x',tipoExpre);
+                            }
+                            else
+                            {
+                                int conversion = convertirString(stringpos);
+                                crearTipoExpresionNumero(conversion,tipoExpre);
+                            }
                             cargarArbolAtomico(arb,tipoExpre);
                             cargarExpresionR(id,arb,expR);
                             guardarExpreAlFinal(expR,lexpre);
                             mostrarExpresionR(expR,TRUE);
                             printf("\n");
-                            limpiarListaString(lis);
-                        }
-                        else
-                        {
-                            if (strlar(str) > 10)
-                                printf ("Error: numero demasiado largo\n");
-                            else if (!esNumero(str))
-                                printf ("Error: se esperaba un numero mayor que cero");
-                            else
-                            {
-                                int conversion = convertirString(str);
-                                crearTipoExpresionNumero(conversion,tipoExpre);
-                                cargarArbolAtomico(arb,tipoExpre);
-                                cargarExpresionR(id,arb,expR);
-                                guardarExpreAlFinal(expR,lexpre);
-                                mostrarExpresionR(expR,TRUE);
-                                printf("\n");
-                                limpiarListaString(lis);
-                            }
                         }
                     }
                 }
@@ -98,6 +88,7 @@ int main()
                         printf("No existen expresiones creadas\n");
                     else
                     {
+                        //primer identificador
                         identificador aux1;
                         string stringpos1, numexpre1;
                         strCrear(stringpos1);
@@ -106,71 +97,84 @@ int main()
                         numexpre1 = cortoNumeroDeExpresion(stringpos1);
                         int conversion = convertirString(numexpre1);
                         crearIdent(stringpos1[0],conversion,aux1);
-                        if (!idValido(aux1))
-                            printf("Error: La primer expresion contiene un formato invalido\n");
-                        else
+                        //segundo identificador
+                        identificador aux2;
+                        string stringpos2, numexpre2;
+                        strCrear(stringpos2);
+                        strCrear(numexpre2);
+                        stringpos2 = obtenerStringPos(lis,2);
+                        numexpre2 = cortoNumeroDeExpresion(stringpos2);
+                        conversion = convertirString(numexpre2);
+                        crearIdent(stringpos2[0],conversion,aux2);
+                        int validador=0;
+
+                        if(!idValido(aux1))
+                            validador=validador+1;
+                        if(!idValido(aux2))
+                            validador=validador+2;
+                        switch(validador)
                         {
-                            identificador aux2;
-                            string stringpos2, numexpre2;
-                            strCrear(stringpos2);
-                            strCrear(numexpre2);
-                            stringpos2 = obtenerStringPos(lis,2);
-                            numexpre2 = cortoNumeroDeExpresion(stringpos2);
-                            int conversion = convertirString(numexpre2);
-                            crearIdent(stringpos2[0],conversion,aux2);
-                            if(!idValido(aux2))
-                                printf("Error: La segunda expresion contiene un formato invalido\n");
-                            else
+                        case 1:
+                            printf("Error: La primer expresion contiene un formato invalido\n");
+                            break;
+                        case 2:
+                            printf("Error: La segunda expresion contiene un formato invalido\n");
+                            break;
+                        case 3:
+                            printf("Error: Las expresiones contienen un formato invalido\n");
+                            break;
+                        }
+
+                        if (validador==0)
+                        {
+                            int conversion1 = convertirString(numexpre1), conversion2 = convertirString(numexpre2);
+                            crearIdent(stringpos1[0],conversion1,id);
+                            crearIdent(stringpos2[0],conversion2,id2);
+                            int bandera=0;
+                            if(existeIdent(id,lexpre))
+                                bandera=bandera+1;
+                            if(existeIdent(id2,lexpre))
+                                bandera=bandera+2;
+                            switch(bandera)
                             {
-                                int conversion1 = convertirString(numexpre1), conversion2 = convertirString(numexpre2);
-                                crearIdent(stringpos1[0],conversion1,id);
-                                crearIdent(stringpos2[0],conversion2,id2);
-                                int bandera=0;
-                                if(existeIdent(id,lexpre))
-                                    bandera=bandera+1;
-                                if(existeIdent(id2,lexpre))
-                                    bandera=bandera+2;
-                                switch(bandera)
-                                {
-                                case 0:
-                                    printf("Error: Las expresiones no existen en la lista\n");
-                                    break;
-                                case 1:
-                                    printf("Error: La segunda expresion no existe en la lista\n");
-                                    break;
-                                case 2:
-                                    printf("Error: La primera expresion no existe en la lista\n");
-                                    break;
-                                }
-                                if(bandera==3)
-                                {
-                                    obtenerExpresionRDeLista(id,lexpre,expR);
-                                    obtenerExpresionRDeLista(id2,lexpre,expR2);
-                                    crearTipoExpresionOperador('+',tipoExpre);
-                                    arbolExpre arbol1, arbol2, newArbol1, newArbol2;
-                                    crearArbol(arbol1);
-                                    crearArbol(arbol2);
-                                    crearArbol(newArbol1);
-                                    crearArbol(newArbol2);
-                                    arbol1 = obtenerArbol(expR);
-                                    arbol2 = obtenerArbol(expR2);
-                                    copiarTodosLosNodos(arbol1,newArbol1);
-                                    copiarTodosLosNodos(arbol2,newArbol2);
-                                    cargarArbolNoAtomico(arb,tipoExpre,newArbol1,newArbol2);
-                                    //creo la expre resultante, el nuevo identificador, la expresion y lo  agregoa la lista
-                                    identificador id3;
-                                    int maximo = maxId(lexpre)+1;
-                                    crearIdent(E,maximo,id3);
-                                    tipoExpresion parIzq, parDer;
-                                    crearTipoExpresionParentesis('(',parIzq);
-                                    crearTipoExpresionParentesis(')',parDer);
-                                    cargarParentesis(arb, parIzq, parDer);
-                                    expresionR expSuma;
-                                    cargarExpresionR (id3, arb, expSuma);
-                                    guardarExpreAlFinal(expSuma,lexpre);
-                                    mostrarExpresionR(expSuma,TRUE);
-                                    printf("\n");
-                                }
+                            case 0:
+                                printf("Error: Las expresiones no existen en la lista\n");
+                                break;
+                            case 1:
+                                printf("Error: La segunda expresion no existe en la lista\n");
+                                break;
+                            case 2:
+                                printf("Error: La primera expresion no existe en la lista\n");
+                                break;
+                            }
+                            if(bandera==3)
+                            {
+                                obtenerExpresionRDeLista(id,lexpre,expR);
+                                obtenerExpresionRDeLista(id2,lexpre,expR2);
+                                crearTipoExpresionOperador('+',tipoExpre);
+                                arbolExpre arbol1, arbol2, newArbol1, newArbol2;
+                                crearArbol(arbol1);
+                                crearArbol(arbol2);
+                                crearArbol(newArbol1);
+                                crearArbol(newArbol2);
+                                arbol1 = obtenerArbol(expR);
+                                arbol2 = obtenerArbol(expR2);
+                                copiarTodosLosNodos(arbol1,newArbol1);
+                                copiarTodosLosNodos(arbol2,newArbol2);
+                                cargarArbolNoAtomico(arb,tipoExpre,newArbol1,newArbol2);
+                                //creo la expre resultante, el nuevo identificador, la expresion y lo  agregoa la lista
+                                identificador id3;
+                                int maximo = maxId(lexpre)+1;
+                                crearIdent(E,maximo,id3);
+                                tipoExpresion parIzq, parDer;
+                                crearTipoExpresionParentesis('(',parIzq);
+                                crearTipoExpresionParentesis(')',parDer);
+                                cargarParentesis(arb, parIzq, parDer);
+                                expresionR expSuma;
+                                cargarExpresionR (id3, arb, expSuma);
+                                guardarExpreAlFinal(expSuma,lexpre);
+                                mostrarExpresionR(expSuma,TRUE);
+                                printf("\n");
                             }
                         }
                     }
@@ -193,6 +197,7 @@ int main()
                         printf("No existen expresiones creadas\n");
                     else
                     {
+                        //primer identificador
                         identificador aux1;
                         string stringpos1, numexpre1;
                         strCrear(stringpos1);
@@ -201,72 +206,85 @@ int main()
                         numexpre1 = cortoNumeroDeExpresion(stringpos1);
                         int conversion = convertirString(numexpre1);
                         crearIdent(stringpos1[0],conversion,aux1);
-                        if(!idValido(aux1))
-                            printf("Error: La primer expresion contiene un formato invalido\n");
-                        else
+                        //segundo identificador
+                        identificador aux2;
+                        string stringpos2, numexpre2;
+                        strCrear(stringpos2);
+                        strCrear(numexpre2);
+                        stringpos2 = obtenerStringPos(lis,2);
+                        numexpre2 = cortoNumeroDeExpresion(stringpos2);
+                        conversion = convertirString(numexpre2);
+                        crearIdent(stringpos2[0],conversion,aux2);
+                        int validador=0;
+
+                        if (!idValido(aux1))
+                            validador=validador+1;
+                        if(!idValido(aux2))
+                            validador=validador+2;
+                        switch(validador)
                         {
-                            identificador aux2;
-                            string stringpos2, numexpre2;
-                            strCrear(stringpos2);
-                            strCrear(numexpre2);
-                            stringpos2 = obtenerStringPos(lis,2);
-                            numexpre2 = cortoNumeroDeExpresion(stringpos2);
-                            int conversion = convertirString(numexpre2);
-                            crearIdent(stringpos2[0],conversion,aux2);
-                            if(!idValido(aux2))
-                                printf("Error: La segunda expresion contiene un formato invalido\n");
-                            else
+                        case 1:
+                            printf("Error: La primer expresion contiene un formato invalido\n");
+                            break;
+                        case 2:
+                            printf("Error: La segunda expresion contiene un formato invalido\n");
+                            break;
+                        case 3:
+                            printf("Error: Las expresiones contienen un formato invalido\n");
+                            break;
+                        }
+
+                        if (validador==0)
+                        {
+                            int conversion1 = convertirString(numexpre1), conversion2 = convertirString(numexpre2);
+                            crearIdent(stringpos1[0],conversion1,id);
+                            crearIdent(stringpos2[0],conversion2,id2);
+                            int bandera=0;
+                            if(existeIdent(id,lexpre))
+                                bandera=bandera+1;
+                            if(existeIdent(id2,lexpre))
+                                bandera=bandera+2;
+                            switch(bandera)
                             {
-                                int conversion1 = convertirString(numexpre1), conversion2 = convertirString(numexpre2);
-                                crearIdent(stringpos1[0],conversion1,id);
-                                crearIdent(stringpos2[0],conversion2,id2);
-                                int bandera=0;
-                                if(existeIdent(id,lexpre))
-                                    bandera=bandera+1;
-                                if(existeIdent(id2,lexpre))
-                                    bandera=bandera+2;
-                                switch(bandera)
-                                {
-                                case 0:
-                                    printf("Error: Las expresiones no existen en la lista\n");
-                                    break;
-                                case 1:
-                                    printf("Error: La segunda expresion no existe en la lista\n");
-                                    break;
-                                case 2:
-                                    printf("Error: La primera expresion no existe en la lista\n");
-                                    break;
-                                }
-                                if(bandera==3)
-                                {
-                                    obtenerExpresionRDeLista(id,lexpre,expR);
-                                    obtenerExpresionRDeLista(id2,lexpre,expR2);
-                                    crearTipoExpresionOperador('*',tipoExpre);
-                                    arbolExpre arbol1, arbol2, newArbol1, newArbol2;
-                                    crearArbol(arbol1);
-                                    crearArbol(arbol2);
-                                    crearArbol(newArbol1);
-                                    crearArbol(newArbol2);
-                                    arbol1 = obtenerArbol(expR);
-                                    arbol2 = obtenerArbol(expR2);
-                                    copiarTodosLosNodos(arbol1,newArbol1);
-                                    copiarTodosLosNodos(arbol2,newArbol2);
-                                    cargarArbolNoAtomico(arb,tipoExpre,newArbol1,newArbol2);
-                                    //creo la expre resultante, el nuevo identificador, la expresion y lo  agregoa la lista
-                                    identificador id3;
-                                    int maximo = maxId(lexpre)+1;
-                                    crearIdent(E,maximo,id3);
-                                    tipoExpresion parIzq, parDer;
-                                    crearTipoExpresionParentesis('(',parIzq);
-                                    crearTipoExpresionParentesis(')',parDer);
-                                    cargarParentesis(arb, parIzq, parDer);
-                                    expresionR expSuma;
-                                    cargarExpresionR (id3, arb, expSuma);
-                                    guardarExpreAlFinal(expSuma,lexpre);
-                                    mostrarExpresionR(expSuma,TRUE);
-                                    printf("\n");
-                                    limpiarListaString(lis);
-                                }
+                            case 0:
+                                printf("Error: Las expresiones no existen en la lista\n");
+                                break;
+                            case 1:
+                                printf("Error: La segunda expresion no existe en la lista\n");
+                                break;
+                            case 2:
+                                printf("Error: La primera expresion no existe en la lista\n");
+                                break;
+                            }
+                            if(bandera==3)
+                            {
+                                obtenerExpresionRDeLista(id,lexpre,expR);
+                                obtenerExpresionRDeLista(id2,lexpre,expR2);
+                                crearTipoExpresionOperador('*',tipoExpre);
+                                arbolExpre arbol1, arbol2, newArbol1, newArbol2;
+                                crearArbol(arbol1);
+                                crearArbol(arbol2);
+                                crearArbol(newArbol1);
+                                crearArbol(newArbol2);
+                                arbol1 = obtenerArbol(expR);
+                                arbol2 = obtenerArbol(expR2);
+                                copiarTodosLosNodos(arbol1,newArbol1);
+                                copiarTodosLosNodos(arbol2,newArbol2);
+                                cargarArbolNoAtomico(arb,tipoExpre,newArbol1,newArbol2);
+                                //creo la expre resultante, el nuevo identificador, la expresion y los agrego a la lista
+                                identificador id3;
+                                int maximo = maxId(lexpre)+1;
+                                crearIdent(E,maximo,id3);
+                                tipoExpresion parIzq, parDer;
+                                crearTipoExpresionParentesis('(',parIzq);
+                                crearTipoExpresionParentesis(')',parDer);
+                                cargarParentesis(arb, parIzq, parDer);
+                                expresionR expSuma;
+                                cargarExpresionR (id3, arb, expSuma);
+                                guardarExpreAlFinal(expSuma,lexpre);
+                                mostrarExpresionR(expSuma,TRUE);
+                                printf("\n");
+                                limpiarListaString(lis);
                             }
                         }
                     }
@@ -289,7 +307,6 @@ int main()
                         printf("No existen expresiones creadas\n");
                     else
                     {
-                        identificador aux1, aux2;
                         string stringpos1, stringpos2, numexpre1, numexpre2;
                         strCrear(stringpos1);
                         strCrear(stringpos2);
@@ -302,32 +319,43 @@ int main()
                         int conversion1 = convertirString(numexpre1), conversion2 = convertirString(numexpre2);
                         crearIdent(stringpos1[0],conversion1,idaux1);
                         crearIdent(stringpos2[0],conversion2,idaux2);
+                        int validador=0;
                         if (!idValido(idaux1))
-                            printf("Error: La primer expresion contiene un formato invalido\n");
-                        else
+                            validador=validador+1;
+                        if(!idValido(idaux2))
+                            validador=validador+2;
+                        switch(validador)
                         {
-                            if (!idValido(idaux2))
-                                printf("Error: La segunda expresion contiene un formato invalido\n");
+                        case 1:
+                            printf("Error: La primer expresion contiene un formato invalido\n");
+                            break;
+                        case 2:
+                            printf("Error: La segunda expresion contiene un formato invalido\n");
+                            break;
+                        case 3:
+                            printf("Error: Las expresiones contiene un formato invalido\n");
+                            break;
+                        }
+
+                        if (validador==0)
+                        {
+                            if (!existeIdent(idaux1, lexpre))
+                                printf("Error: La primera expresion no existe en la lista\n");
                             else
                             {
-                                if (!existeIdent(idaux1, lexpre))
-                                    printf("Error: La primera expresion no existe en la lista\n");
+                                if (!existeIdent(idaux2, lexpre))
+                                    printf("Error: La segunda expresion no existe en la lista\n");
                                 else
                                 {
-                                    if (!existeIdent(idaux2, lexpre))
-                                        printf("Error: La segunda expresion no existe en la lista\n");
+                                    obtenerExpresionRDeLista(idaux1, lexpre, expR);
+                                    obtenerExpresionRDeLista(idaux2, lexpre, expR2);
+                                    arbaux1 = obtenerArbol(expR);
+                                    arbaux2 = obtenerArbol(expR2);
+                                    if (!comparoArbol(arbaux1, arbaux2))
+                                        printf("Resultado: Las expresiones no son iguales\n");
                                     else
-                                    {
-                                        obtenerExpresionRDeLista(idaux1, lexpre, expR);
-                                        obtenerExpresionRDeLista(idaux2, lexpre, expR2);
-                                        arbaux1 = obtenerArbol(expR);
-                                        arbaux2 = obtenerArbol(expR2);
-                                        if (!comparoArbol(arbaux1, arbaux2))
-                                            printf("Resultado: Las expresiones no son iguales\n");
-                                        else
-                                            printf("Resultado: Las expresiones son iguales\n");
-                                        limpiarListaString(lis);
-                                    }
+                                        printf("Resultado: Las expresiones son iguales\n");
+                                    limpiarListaString(lis);
                                 }
                             }
                         }
@@ -412,15 +440,15 @@ int main()
                         {
                             str = obtenerStringPos(lis,2);
                             if (!contarPuntos(str))
-                                printf ("Error: nombre de archivo no valido\n");
+                                printf ("Error: Nombre de archivo no valido\n");
                             else
                             {
                                 if (!esAlfanumerico(str))
-                                    printf("Error: nombre de archivo no es valido en es alfanumerico\n");
+                                    printf("Error: Nombre de archivo no es valido, no es alfanumerico\n");
                                 else
                                 {
                                     if (!extensionValida(str))
-                                        printf ("\nFormato de archivo no valido\n");
+                                        printf ("Error: Formato de archivo no valido\n");
                                     else
                                     {
                                         if (existeArchivo(str))
@@ -482,13 +510,12 @@ int main()
                 else
                 {
                     string str = obtenerStringPos(lis,1);
-                    //str = lis->info;
                     if (!esAlfanumerico(str))
                         printf("Error: El nombre de archivo no es valido\n");
                     else
                     {
                         if (!extensionValida(str))
-                            printf ("\nFormato de archivo no valido\n");
+                            printf ("Formato de archivo no valido\n");
                         else
                         {
                             if (existeArchivo(str))
@@ -499,8 +526,6 @@ int main()
                                 crearIdent(E,maximo,id);
                                 FILE * f=fopen(str,"rb");
                                 subirExpR(f,auxArbol);
-                                //subirExpR(f,arb);
-                                //cargarExpresionR(id, arb, expR);
                                 cargarExpresionR(id, auxArbol, expR);
                                 mostrarExpresionR(expR,TRUE);
                                 printf("\n");
@@ -536,6 +561,7 @@ int main()
                         salir = TRUE;
                     }
                 }
+
                 limpiarListaString(lis);
             }
             else if (comparoString(comando, "help"))
@@ -553,7 +579,7 @@ int main()
                 printf ("\n\n- quit - salir del programa\n");
             }
             else
-                printf ("No es un comando valido, digite nuevamente\n");
+                printf ("No es un comando valido, digite nuevamente. \nPor mas informacion digite help\n");
             limpiarListaString(lis);
         }
         else
