@@ -79,7 +79,6 @@ int main()
                 crearArbol(arb);
                 tipoExpresion tipoExpre;
                 expresionR expR, expR2;
-                identificador id,id2;
                 if (contarNodos(lis) != 3)
                     printf("Se esperaban dos parametros\n");
                 else
@@ -95,8 +94,8 @@ int main()
                         strCrear(numexpre1);
                         stringpos1 = obtenerStringPos(lis,1);
                         numexpre1 = cortoNumeroDeExpresion(stringpos1);
-                        int conversion = convertirString(numexpre1);
-                        crearIdent(stringpos1[0],conversion,aux1);
+                        int conversion1 = convertirString(numexpre1);
+                        crearIdent(E,conversion1,aux1);
                         //segundo identificador
                         identificador aux2;
                         string stringpos2, numexpre2;
@@ -104,8 +103,8 @@ int main()
                         strCrear(numexpre2);
                         stringpos2 = obtenerStringPos(lis,2);
                         numexpre2 = cortoNumeroDeExpresion(stringpos2);
-                        conversion = convertirString(numexpre2);
-                        crearIdent(stringpos2[0],conversion,aux2);
+                        int conversion2 = convertirString(numexpre2);
+                        crearIdent(E,conversion2,aux2);
                         int validador=0;
 
                         if(!idValido(aux1))
@@ -127,13 +126,11 @@ int main()
 
                         if (validador==0)
                         {
-                            int conversion1 = convertirString(numexpre1), conversion2 = convertirString(numexpre2);
-                            crearIdent(stringpos1[0],conversion1,id);
-                            crearIdent(stringpos2[0],conversion2,id2);
+
                             int bandera=0;
-                            if(existeIdent(id,lexpre))
+                            if(existeIdent(aux1,lexpre))
                                 bandera=bandera+1;
-                            if(existeIdent(id2,lexpre))
+                            if(existeIdent(aux2,lexpre))
                                 bandera=bandera+2;
                             switch(bandera)
                             {
@@ -149,8 +146,8 @@ int main()
                             }
                             if(bandera==3)
                             {
-                                obtenerExpresionRDeLista(id,lexpre,expR);
-                                obtenerExpresionRDeLista(id2,lexpre,expR2);
+                                obtenerExpresionRDeLista(aux1,lexpre,expR);
+                                obtenerExpresionRDeLista(aux2,lexpre,expR2);
                                 crearTipoExpresionOperador('+',tipoExpre);
                                 arbolExpre arbol1, arbol2, newArbol1, newArbol2;
                                 crearArbol(arbol1);
@@ -188,7 +185,6 @@ int main()
                 crearArbol(arb);
                 tipoExpresion tipoExpre;
                 expresionR expR, expR2;
-                identificador id,id2;
                 if (contarNodos(lis) != 3)
                     printf("Se esperaban dos parametros\n");
                 else
@@ -204,8 +200,8 @@ int main()
                         strCrear(numexpre1);
                         stringpos1 = obtenerStringPos(lis,1);
                         numexpre1 = cortoNumeroDeExpresion(stringpos1);
-                        int conversion = convertirString(numexpre1);
-                        crearIdent(stringpos1[0],conversion,aux1);
+                        int conversion1 = convertirString(numexpre1);
+                        crearIdent(E,conversion1,aux1);
                         //segundo identificador
                         identificador aux2;
                         string stringpos2, numexpre2;
@@ -213,11 +209,11 @@ int main()
                         strCrear(numexpre2);
                         stringpos2 = obtenerStringPos(lis,2);
                         numexpre2 = cortoNumeroDeExpresion(stringpos2);
-                        conversion = convertirString(numexpre2);
-                        crearIdent(stringpos2[0],conversion,aux2);
+                        int conversion2 = convertirString(numexpre2);
+                        crearIdent(E,conversion2,aux2);
                         int validador=0;
 
-                        if (!idValido(aux1))
+                        if(!idValido(aux1))
                             validador=validador+1;
                         if(!idValido(aux2))
                             validador=validador+2;
@@ -236,13 +232,11 @@ int main()
 
                         if (validador==0)
                         {
-                            int conversion1 = convertirString(numexpre1), conversion2 = convertirString(numexpre2);
-                            crearIdent(stringpos1[0],conversion1,id);
-                            crearIdent(stringpos2[0],conversion2,id2);
+
                             int bandera=0;
-                            if(existeIdent(id,lexpre))
+                            if(existeIdent(aux1,lexpre))
                                 bandera=bandera+1;
-                            if(existeIdent(id2,lexpre))
+                            if(existeIdent(aux2,lexpre))
                                 bandera=bandera+2;
                             switch(bandera)
                             {
@@ -258,8 +252,8 @@ int main()
                             }
                             if(bandera==3)
                             {
-                                obtenerExpresionRDeLista(id,lexpre,expR);
-                                obtenerExpresionRDeLista(id2,lexpre,expR2);
+                                obtenerExpresionRDeLista(aux1,lexpre,expR);
+                                obtenerExpresionRDeLista(aux2,lexpre,expR2);
                                 crearTipoExpresionOperador('*',tipoExpre);
                                 arbolExpre arbol1, arbol2, newArbol1, newArbol2;
                                 crearArbol(arbol1);
@@ -271,7 +265,7 @@ int main()
                                 copiarTodosLosNodos(arbol1,newArbol1);
                                 copiarTodosLosNodos(arbol2,newArbol2);
                                 cargarArbolNoAtomico(arb,tipoExpre,newArbol1,newArbol2);
-                                //creo la expre resultante, el nuevo identificador, la expresion y los agrego a la lista
+                                //creo la expre resultante, el nuevo identificador, la expresion y lo  agregoa la lista
                                 identificador id3;
                                 int maximo = maxId(lexpre)+1;
                                 crearIdent(E,maximo,id3);
@@ -284,11 +278,11 @@ int main()
                                 guardarExpreAlFinal(expSuma,lexpre);
                                 mostrarExpresionR(expSuma,TRUE);
                                 printf("\n");
-                                limpiarListaString(lis);
                             }
                         }
                     }
                 }
+                limpiarListaString(lis);
             }
             else if (comparoString(comando, "equals"))
             {
